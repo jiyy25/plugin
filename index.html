@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 바로가기(파비콘) seo최적화//광고추적지 -->
+    <!-- 폰트 -->
+    <!-- 초기화 -->
+    <!-- 공통클래스//부트스트랩 -->
+    <!-- 플러그인 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- 내꺼 -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400&display=swap');
+
+        body {
+            padding: 0;
+            margin: 0;
+            font-family: 'Noto Sans KR';
+            font-weight: 400;
+        }
+
+        .darkBrown {
+            background-color: rgb(170, 41, 1);
+            text-align: center;
+        }
+
+        .darkBrown a {
+            line-height: 2rem;
+            color: white;
+            text-decoration: none;
+        }
+
+        .container {
+            margin: 0 auto;
+            max-width: 1280px
+        }
+
+        #topAd .container {
+            position: relative;
+            width: 1280px
+        }
+
+        #topAd .swiper-pagination-fraction {
+            color: white;
+            position: absolute;
+            right: 0;
+            left: unset;
+            bottom: 0;
+            top: 0;
+            width: auto;
+            transform: translateX(-50%);
+            display: flex;
+            align-items: center;
+            font-size: 0.8rem
+        }
+
+        /* Tip.기존의 플러그인 스타일을 가져와서 다시 고쳐준다 */
+    </style>
+
+    <script src="https://code.jquery.com/jquery-2.2.4.js"
+        integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+    <script>
+        // 제이쿼리 스크립트들 ->제이쿼리가 무겁기때문엥...!
+    </script>
+</head>
+
+<body>
+    <div id="topAd" class="darkBrown">
+        <div class="swiper container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide darkBrown">
+                    <a href="">멤버쉽특가 바로가기</a>
+                </div>
+                <div class="swiper-slide darkBrown">
+                    <a href="">구독혜택</a>
+                </div>
+                <div class="swiper-slide darkBrown">
+                    <a href="">신상품 바로가기</a>
+                </div>
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+
+    <script>
+        const swiperTop = new Swiper('#topAd .swiper', {
+            loop: true, //순환
+            pagination: {
+                el: '#topAd .swiper-pagination', //객체
+                type: 'fraction'
+            },
+            effect: "fade",
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: false,
+            },
+        });
+    </script>
+</body>
+
+</html>
