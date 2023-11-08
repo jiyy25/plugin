@@ -28,6 +28,10 @@
             text-align: center;
         }
 
+        .black {
+            background-color: black;
+        }
+
         .darkBrown a {
             line-height: 2rem;
             color: white;
@@ -51,54 +55,184 @@
             bottom: 50%;
             top: unset;
             width: auto;
-            transform: translate(-50% ,50%);
+            transform: translate(-50%, 50%);
             /* display: flex;
             align-items: center; */
             font-size: 0.8rem
         }
 
         /* Tip.기존의 플러그인 스타일을 가져와서 다시 고쳐준다 */
+
+        #hd {
+            height: 150px;
+            border-bottom: 1px solid #ccc;
+        }
+
+        #mainBanner {
+            overflow: hidden;
+        }
+
+        #mainBanner .swiper {
+            overflow: visible !important;
+        }
+
+        #mainBanner .swiper-slide {
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 50px;
+            background-color: #ccc;
+        }
+
+        /* #mainBanner .container {
+            position: relative;
+            top: 50%;
+            bottom: 0;
+
+        } */
+
+        #mainBanner .swiper-pagination.swiper-pagination-fraction.swiper-pagination-horizontal {
+            width: 100px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: aliceblue;
+            border-radius: 50px;
+        }
+
+        #mainBanner .swiper-button-next:after,
+        #mainBanner .swiper-button-prev:after {
+            display: none;
+        }
+
+        #mainBanner .swiper-button-prev,
+        #mainBanner .swiper-button-next {
+            width: 3rem;
+            height: 3rem;
+            /* border-top: 1px solid black;
+            border-right: 1px solid black; */
+            /* transform: rotate(-135deg); */
+            /* transform-origin: left; */
+        }
+
+        #mainBanner .swiper-button-prev {
+            border-top: 1px solid black;
+            border-left: 1px solid black;
+            transform: rotate(-45deg);
+            transform-origin: left;
+            left: 2.5rem;
+        }
+
+        #mainBanner .swiper-button-prev:hover::before {
+            content: "prev";
+            transform: rotate(45deg);
+        }
+
+        #mainBanner .swiper-button-next {
+            border-top: 1px solid black;
+            border-right: 1px solid black;
+            transform: rotate(45deg);
+            transform-origin: right;
+            right: 2.5rem;
+        }
+
+        /* #mainBanner .swiper-button-next::before,
+        #mainBanner .swiper-button-prev::before {
+            transition: 0.8s;
+        } 가상요소엔 트랜지션이 안들어가는건가*/ 
+
+        #mainBanner .swiper-button-next:hover::before {
+            content: "next";
+            transform: rotate(-45deg);
+        }
     </style>
 
-    <script src="https://code.jquery.com/jquery-2.2.4.js"
-        integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
-    <script>
-        // 제이쿼리 스크립트들 ->제이쿼리가 무겁기때문엥...!
-    </script>
 </head>
 
 <body>
-    <div id="topAd" class="darkBrown">
+    <header id="hd">
+        <div id="topAd" class="darkBrown">
+            <div class="swiper container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide black">
+                        <a href="">멤버쉽특가 바로가기</a>
+                    </div>
+                    <div class="swiper-slide black">
+                        <a href="">구독혜택</a>
+                    </div>
+                    <div class="swiper-slide black">
+                        <a href="">신상품 바로가기</a>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+        <script>
+            const swiperTop = new Swiper('#topAd .swiper', {
+                loop: true, //순환
+                pagination: {
+                    el: '#topAd .swiper-pagination', //객체
+                    type: 'fraction'
+                },
+                effect: "fade",
+                autoplay: {
+                    delay: 4000,
+                    disableOnInteraction: false,
+                },
+            });
+        </script>
+
+        <div class="container">
+
+        </div>
+    </header>
+    <div id="mainBanner">
+        <!-- 9개 슬라이더, 높이 600 -->
+
         <div class="swiper container">
             <div class="swiper-wrapper">
-                <div class="swiper-slide darkBrown">
-                    <a href="">멤버쉽특가 바로가기</a>
-                </div>
-                <div class="swiper-slide darkBrown">
-                    <a href="">구독혜택</a>
-                </div>
-                <div class="swiper-slide darkBrown">
-                    <a href="">신상품 바로가기</a>
-                </div>
+                <div class="swiper-slide">Slide 1</div>
+                <div class="swiper-slide">Slide 2</div>
+                <div class="swiper-slide">Slide 3</div>
+                <div class="swiper-slide">Slide 4</div>
+                <div class="swiper-slide">Slide 5</div>
+                <div class="swiper-slide">Slide 6</div>
+                <div class="swiper-slide">Slide 7</div>
+                <div class="swiper-slide">Slide 8</div>
+                <div class="swiper-slide">Slide 9</div>
             </div>
             <div class="swiper-pagination"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+
         </div>
+        <script>
+            const swiperMain = new Swiper('#mainBanner .swiper', {
+                loop: true,
+                slidesPerView: 1,
+                spaceBetween: 1,
+                centeredSlides: true,
+
+                pagination: {
+                    el: '#mainBanner .swiper-pagination',
+                    type: "fraction",
+                },
+
+                autoplay: {
+                    delay: 4000,
+                    disableOnInteraction: false,
+                },
+
+                navigation: {
+                    nextEl: '#mainBanner .swiper-button-next',
+                    prevEl: '#mainBanner .swiper-button-prev',
+                },
+                loopAdditionalSlides: 1,
+            });
+        </script>
     </div>
 
-    <script>
-        const swiperTop = new Swiper('#topAd .swiper', {
-            loop: true, //순환
-            pagination: {
-                el: '#topAd .swiper-pagination', //객체
-                type: 'fraction'
-            },
-            effect: "fade",
-            autoplay: {
-                delay: 4000,
-                disableOnInteraction: false,
-            },
-        });
-    </script>
+
 </body>
 
 </html>
