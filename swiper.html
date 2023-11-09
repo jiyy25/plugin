@@ -20,11 +20,6 @@
             line-height: 1;
         }
 
-        #shopBanner .swiper-wrapper {
-            width: 100%;
-            /* background-color: antiquewhite; */
-        }
-
         a {
             text-decoration: none;
             color: aliceblue;
@@ -143,38 +138,45 @@
 </head>
 
 <body>
-    <div class="swiper container rel " id="shopBanner">
-        <div class="swiper-wrapper ">
-            <div class="swiper-slide ">
-                <a href=""><img src="./img/a5214360bcc77ec50d7441d348a91269.jpg" alt=""></a>
+    <div id="shopBanner">
+        <div class="swiper container rel ">
+            <div class="swiper-wrapper ">
+                <div class="swiper-slide " data-color="red">
+                    <a href=""><img src="./img/a5214360bcc77ec50d7441d348a91269.jpg" alt=""></a>
+                </div>
+                <div class="swiper-slide" data-color="orange"><a href=""><img src="./img/2311071753419300146_705.jpg"
+                            alt=""></a></div>
+                <div class="swiper-slide" data-color="yellow"><a href=""><img src="./img/2311061358583401151_633.jpg"
+                            alt=""></a></div>
+                <div class="swiper-slide" data-color="green"><a href=""><img src="./img/2311081341328500146_709.jpg"
+                            alt=""></a></div>
+                <div class="swiper-slide" data-color="blue"><a href=""><img
+                            src="./img/b1d972a164b918d5a6b3cc3d218f8105.jpg" alt=""></a></div>
+                <div class="swiper-slide" data-color="purple"><a href=""><img src="./img/2310301644134801151_290.jpg"
+                            alt=""></a></div>
             </div>
-            <div class="swiper-slide"><a href=""><img src="./img/2311071753419300146_705.jpg" alt=""></a></div>
-            <div class="swiper-slide"><a href=""><img src="./img/2311061358583401151_633.jpg" alt=""></a></div>
-            <div class="swiper-slide"><a href=""><img src="./img/2311081341328500146_709.jpg" alt=""></a></div>
-            <div class="swiper-slide"><a href=""><img src="./img/b1d972a164b918d5a6b3cc3d218f8105.jpg" alt=""></a></div>
-            <div class="swiper-slide"><a href=""><img src="./img/2310301644134801151_290.jpg" alt=""></a></div>
+
+            <div class="btns d-flex abs">
+                <div class="btnBox toggle">
+                    <button></button>
+                </div>
+
+                <div class="btnBox d-flex page">
+                    <div class="swiper-pagination"></div>
+                    <a href=""><i class="bi bi-plus-lg"></i></a>
+                </div>
+
+                <div class="btnBox d-flex iconBox">
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+            </div>
+
         </div>
-
-        <div class="btns d-flex abs">
-            <div class="btnBox toggle">
-                <button></button>
-            </div>
-
-            <div class="btnBox d-flex page">
-                <div class="swiper-pagination"></div>
-                <a href=""><i class="bi bi-plus-lg"></i></a>
-            </div>
-
-            <div class="btnBox d-flex iconBox">
-                <div class="swiper-button-prev"></div>
-                <div class="swiper-button-next"></div>
-            </div>
-        </div>
-
     </div>
 
     <script>
-        var swiperShop = new Swiper('#shopBanner.swiper', {
+        var swiperShop = new Swiper('#shopBanner .swiper', {
             loop: true,
             effect: "fade",
 
@@ -196,13 +198,16 @@
         });
 
         swiperShop.on('slideChange', function () {
-            console.log(swiperShop)
+            console.log(swiperShop.slides[this.realIndex].dataset.color, this)
+            bgdata = swiperShop.slides[this.realIndex].dataset.color;
+            document.querySelector("#shopBanner").style.backgroundColor = bgdata;
         })
 
         var togglestatu = true; //var변수선언을 해줌-> 다른 스코프에서 쓰일 예정이므로..!
         document.querySelector(".toggle").addEventListener("click", function () {
 
             this.classList.toggle('stop');
+            //this가 태그객체임이 확인되어 그대로 클래스를 주었다 빼었다 함.
 
             togglestatu = this.classList.contains('stop');
             //클래스명이 포함되어 있으면 true, 아니면 false
