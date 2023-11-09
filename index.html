@@ -139,11 +139,13 @@
         /* #mainBanner .swiper-button-next::before,
         #mainBanner .swiper-button-prev::before {
             transition: 0.8s;
-        } 가상요소엔 트랜지션이 안들어가는건가*/ 
+        } 가상요소엔 트랜지션이 안들어가는건가*/
 
         #mainBanner .swiper-button-next:hover::before {
             content: "next";
             transform: rotate(-45deg);
+            transition: 0.8s;
+            display: block;
         }
     </style>
 

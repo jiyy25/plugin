@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11번가 따라하기</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "Noto Sans KR";
+            font-weight: 300;
+            line-height: 1;
+        }
+
+        #shopBanner .swiper-wrapper {
+            width: 100%;
+            /* background-color: antiquewhite; */
+        }
+
+        a {
+            text-decoration: none;
+            color: aliceblue;
+        }
+
+        button {
+            background-color: transparent;
+            border: 0;
+        }
+
+        .container {
+            width: 1240px;
+            margin: 0 auto;
+        }
+
+        .abs {
+            position: absolute;
+        }
+
+        .rel {
+            position: relative;
+        }
+
+        .d-flex {
+            display: flex;
+        }
+
+        #shopBanner .btns {
+            bottom: 0;
+            right: 0;
+        }
+
+        .btns {
+            padding: 1rem;
+        }
+
+        .btnBox {
+            background-color: #0000006e;
+            align-items: center;
+            /* line-height: 1; */
+            border-radius: 2rem;
+            z-index: 99999;
+            padding: 0.5rem;
+            margin-right: 1rem;
+        }
+
+        #shopBanner .btnBox.page {
+            padding: 0 1.5rem;
+        }
+
+        .btnBox button {
+            color: white;
+            text-align: center;
+            line-height: 2;
+            cursor: pointer;
+        }
+
+
+        #shopBanner .btnBox .swiper-pagination,
+        #shopBanner .btnBox .swiper-pagination+a {
+            position: unset;
+            color: white;
+            padding: 0 0.5rem;
+        }
+
+
+        #shopBanner .btnBox .swiper-button-prev,
+        #shopBanner .btnBox .swiper-button-next {
+            position: unset;
+            width: auto;
+            height: auto;
+            margin: 0 0.3rem;
+        }
+
+        .toggle button {
+            padding: 0 0.5rem;
+        }
+
+        #shopBanner .btns *,
+        #shopBanner .btns *:after {
+            font-size: 1rem !important;
+            line-height: 2;
+        }
+
+        /* 폰트! 가장 먼저 확인 */
+
+        /* 플러그인 세팅 재설정하기 */
+
+        .swiper-button-prev:after,
+        .swiper-button-next:after {
+            /* position: absolute;
+            top: 50%;
+            transform: translateY(-50%); */
+            color: white;
+        }
+
+        .swiper-button-prev:after {
+            content: "\F284";
+            font-family: bootstrap-icons !important;
+        }
+
+        .swiper-button-next:after {
+            content: "\F285";
+            font-family: bootstrap-icons !important;
+        }
+
+        .toggle button:after {
+            content: "\F4C4";
+            font-family: bootstrap-icons !important;
+        }
+
+        .toggle.stop button:after {
+            content: "\F593";
+        }
+    </style>
+</head>
+
+<body>
+    <div class="swiper container rel " id="shopBanner">
+        <div class="swiper-wrapper ">
+            <div class="swiper-slide ">
+                <a href=""><img src="./img/a5214360bcc77ec50d7441d348a91269.jpg" alt=""></a>
+            </div>
+            <div class="swiper-slide"><a href=""><img src="./img/2311071753419300146_705.jpg" alt=""></a></div>
+            <div class="swiper-slide"><a href=""><img src="./img/2311061358583401151_633.jpg" alt=""></a></div>
+            <div class="swiper-slide"><a href=""><img src="./img/2311081341328500146_709.jpg" alt=""></a></div>
+            <div class="swiper-slide"><a href=""><img src="./img/b1d972a164b918d5a6b3cc3d218f8105.jpg" alt=""></a></div>
+            <div class="swiper-slide"><a href=""><img src="./img/2310301644134801151_290.jpg" alt=""></a></div>
+        </div>
+
+        <div class="btns d-flex abs">
+            <div class="btnBox toggle">
+                <button></button>
+            </div>
+
+            <div class="btnBox d-flex page">
+                <div class="swiper-pagination"></div>
+                <a href=""><i class="bi bi-plus-lg"></i></a>
+            </div>
+
+            <div class="btnBox d-flex iconBox">
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        const swiper = new Swiper('#shopBanner.swiper', {
+            loop: true,
+            effect: "fade",
+
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+
+            pagination: {
+                el: '#shopBanner .swiper-pagination',
+                type: "fraction",
+            },
+
+            navigation: {
+                nextEl: '#shopBanner .swiper-button-next',
+                prevEl: '#shopBanner .swiper-button-prev',
+            },
+
+        });
+
+
+    </script>
+</body>
+
+</html>
