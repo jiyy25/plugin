@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery 2.x</title>
+    <script src="https://code.jquery.com/jquery-2.2.4.js"
+        integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
+    <script>
+        $(function () {
+            $("button").click(function () {
+                $("body").css("background-color", $(this).data("bg"))
+                $("p").html($(this).data("tex"))
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <button data-bg="red" data-tex="빨강">빨강</button>
+    <button data-bg="blue" data-tex="파랑">파랑</button>
+    <button data-bg="yellow" data-tex="노랑">노랑</button>
+    <p></p>
+</body>
+
+</html>
