@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "Noto Sans KR" !important;
+            font-weight: bold;
+            line-height: 1;
+        }
+
+        /* 폰트를 먼저 ! */
+
+        #mainbanner .swiper-slide a {
+            display: block;
+        }
+
+        #mainbanner .swiper-slide img {
+            max-width: 100%;
+            display: block;
+        }
+
+        #mainbanner {
+            text-align: center;
+        }
+
+        #mainbanner .btns {
+            background-color: rgba(0, 0, 0, 0.4);
+            display: inline-flex;
+            border-radius: 2rem;
+            margin-top: 1rem;
+            padding: 0.7rem 1rem;
+            /* 패딩으로 넓이를 잡아준다..! */
+        }
+
+        #mainbanner .btns * {
+            position: unset !important;
+            font-size: 1.5rem;
+            color: white;
+        }
+
+        #mainbanner .btns .swiper-button-prev::after,
+        #mainbanner .btns .swiper-button-next::after {
+            font-size: 1.5rem;
+            /* after에 폰트사이즈만 들어가있음. 이 가상요소를 싸고 있는 엄마가 prev,next 라고 할 수 있음*/
+        }
+
+        #mainbanner .btns .swiper-button-prev,
+        #mainbanner .btns .swiper-button-next {
+            width: auto;
+            height: auto;
+            margin: 0 12px;
+        }
+
+        @media(max-width:768px) {
+            #mainbanner .btns .swiper-button-prev,
+            #mainbanner .btns .swiper-button-next{
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div id="mainbanner">
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <a href=""><img src="./img/VideoThumb_hearthyKids_PC.png" alt=""></a>
+                </div>
+                <div class="swiper-slide">
+                    <a href=""><img src="./img/main_new_pc_ZeroBluelime(2).jpg" alt=""></a>
+                </div>
+                <div class="swiper-slide">
+                    <a href=""><img src="./img/VideoThumb_hearthyKids_PC.png" alt=""></a>
+                </div>
+                <div class="swiper-slide">
+                    <a href=""><img src="./img/main_new_pc_ZeroBluelime(2).jpg" alt=""></a>
+                </div>
+                <div class="swiper-slide">
+                    <a href=""><img src="./img/VideoThumb_hearthyKids_PC.png" alt=""></a>
+                </div>
+                <div class="swiper-slide">
+                    <a href=""><img src="./img/main_new_pc_ZeroBluelime(2).jpg" alt=""></a>
+                </div>
+
+            </div>
+            <div class="btns">
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        var swiper7mall = new Swiper('#mainbanner .swiper', {
+            loop: true,
+            centeredSlides: true,
+            slidesPerView: 1.8,
+            spaceBetween: 70,
+
+            pagination: {
+                el: '#mainbanner .swiper-pagination',
+                type: "fraction",
+            },
+            navigation: {
+                nextEl: '#mainbanner .swiper-button-next',
+                prevEl: '#mainbanner .swiper-button-prev',
+            },
+            breakpoints: {
+                // when window width is >= 320px 가장 작은사이즈
+                320: {
+                    slidesPerView: 1.2,
+                    spaceBetween: 10
+                },
+                // when window width is >= 480px
+                991: {
+                    slidesPerView: 2.5,
+                    spaceBetween: 30
+                },
+                // when window width is >= 640px
+                1440: {
+                    slidesPerView: 3,
+                    spaceBetween: 70
+                }
+            }
+
+        });
+
+    </script>
+</body>
+
+</html>
