@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            line-height: 1;
+        }
+
+        .container {
+            width: 1280px;
+            margin: 0 auto;
+        }
+
+        .rel {
+            position: relative;
+        }
+
+        button {
+            border: 0;
+            background-color: transparent;
+            cursor: pointer;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        #lotteBanner .swiper-slide img {
+            max-width: 100%;
+            display: block;
+        }
+
+        #lotteBanner .btns * {
+            position: unset;
+            padding: 0 5px;
+        }
+
+        #lotteBanner .btns {
+            margin-top: 1rem;
+            font-size: 1rem;
+            display: flex !important;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        #lotteBanner .btns .swiper-pagination {
+            width: auto;
+            font-weight: bold;
+        }
+
+        /* #lotteBanner .btns .toggle::after {
+            content: "\F4C4";
+            font-family: bootstrap-icons !important;
+            font-size: 1.5rem;
+            padding: 0 0.5rem;
+        } */
+
+        #lotteBanner .btns a {
+            /* display: inline-block; */
+            /* width: auto; */
+        }
+
+        #lotteBanner .swiper-button-prev::after,
+        #lotteBanner .swiper-button-next::after {
+            font-size: 1rem;
+            font-weight: bold;
+        }
+
+        #lotteBanner .swiper-button-prev,
+        #lotteBanner .swiper-button-next {
+            color: black;
+            background-color: white;
+            padding: 0.5rem 1rem;
+        }
+
+        #lotteBanner .swiper-button-prev {
+            left: 1px;
+        }
+
+        #lotteBanner .swiper-button-next {
+            right: 1px;
+        }
+
+        #lotteBanner .swiper-pagination-fraction {
+            font-size: 0;
+        }
+
+        #lotteBanner .swiper-pagination-fraction span {
+            font-size: 1rem;
+            line-height: 0.8rem;
+            display: inline-block;
+            /* span요소에 border를 이용한-> 인라인 요소를 바꾸어주고 hight나 line-height로 크기를 바꿔줄 수 있었다..  */
+            padding: 0 9px;
+        }
+
+        #lotteBanner .swiper-pagination-fraction span:nth-last-of-type(1) {
+            border-left: 0.5px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="lotteBanner" class="container rel">
+        <div class="swiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><a href=""><img src="./img/optimize.jpg" alt=""></a></div>
+                <div class="swiper-slide"><a href=""><img src="./img/optimize.jpg" alt=""></a></div>
+                <div class="swiper-slide"><a href=""><img src="./img/optimize.jpg" alt=""></a></div>
+                <div class="swiper-slide"><a href=""><img src="./img/optimize.jpg" alt=""></a></div>
+                <div class="swiper-slide"><a href=""><img src="./img/optimize.jpg" alt=""></a></div>
+            </div>
+            <div class="btns">
+                <div class="swiper-pagination"></div>
+                <button class="toggle"><i class="bi bi-pause bi-play-fill"></i></button>
+                <a href="">전체보기<i class="bi bi-plus"></i></a>
+            </div>
+        </div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+    </div>
+    <script>
+        const swiper = new Swiper('#lotteBanner .swiper', {
+            loop: true,
+            slidesPerView: 2,
+            spaceBetween: 40,
+            pagination: {
+                el: '#lotteBanner .swiper-pagination',
+                type: "fraction",
+            },
+
+            navigation: {
+                nextEl: '#lotteBanner .swiper-button-next',
+                prevEl: '#lotteBanner .swiper-button-prev',
+            },
+
+        });
+    </script>
+</body>
+
+</html>
