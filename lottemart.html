@@ -64,6 +64,10 @@
             font-family: bootstrap-icons !important;
             font-size: 1.5rem;
             padding: 0 0.5rem;
+        }
+
+        #lotteBanner .btns .toggle.on::after {
+            content: "\F4F4";
         } */
 
         #lotteBanner .btns a {
@@ -107,6 +111,15 @@
         #lotteBanner .swiper-pagination-fraction span:nth-last-of-type(1) {
             border-left: 0.5px solid black;
         }
+
+
+        /* .toggle::before {
+            content: "a";
+        } */
+        /* 
+        .bi-pause::before {
+            content: "a";
+        } */
     </style>
 </head>
 
@@ -122,8 +135,12 @@
             </div>
             <div class="btns">
                 <div class="swiper-pagination"></div>
-                <button class="toggle"><i class="bi bi-pause bi-play-fill"></i></button>
-                <a href="">전체보기<i class="bi bi-plus"></i></a>
+                <button class="toggle bi-pause">
+                    <!-- <button class="toggle bi-pause"> -->
+                    <!-- <i class=""></i> -->
+                    <!-- <i class="bi bi-play-fill bi-pause"></i> -->
+                </button>
+                <a href="">전체보기<i class="bi bi-plus "></i></a>
             </div>
         </div>
         <div class="swiper-button-prev"></div>
@@ -145,6 +162,72 @@
             },
 
         });
+
+        var toggleIcon = true;
+        // document.querySelector(".toggle").addEventListener("click", function () {
+        //     // "bi-play-fill" 클래스와 "bi-pause" 클래스를 직접 추가 또는 제거
+        //     if (this.classList.contains("bi-play-fill")) {
+        //         this.classList.remove("bi-play-fill");
+        //         this.classList.add("bi-pause");
+        //     } else {
+        //         this.classList.remove("bi-pause");
+        //         this.classList.add("bi-play-fill");
+        //     }
+
+        //     // 현재 "bi-pause" 클래스가 있는지 확인
+        //     const toggleIcon = this.classList.contains("bi-pause");
+
+        //     // "bi-pause" 클래스가 있으면 autoplay를 중지, 없으면 시작
+        //     if (toggleIcon) {
+        //         swiper.autoplay.stop();
+        //     } else {
+        //         swiper.autoplay.start();
+        //     }
+        // });
+
+
+
+        // document.querySelector(".toggle ").addEventListener("click", function () {
+        //     this.classList.toggle("on");
+        //     // this.classList.remove("bi-play-fill");
+
+
+        //     toggleIcon = this.classList.contains("on");
+        //     if (toggleIcon) {
+        //         swiper.autoplay.stop();
+        //     } else {
+
+        //         swiper.autoplay.start();
+        //     }
+        // })
+        document.querySelector(".toggle ").addEventListener("click", function () {
+            this.classList.toggle("bi-play-fill");
+
+            toggleIcon = this.classList.contains("bi-play-fill");
+            if (toggleIcon) {
+                swiper.autoplay.stop();
+            } else {
+                swiper.autoplay.start();
+            }
+        })
+
+        // document.querySelector(".toggle").addEventListener("click", function () {
+        //     // "bi-pause" 클래스를 추가하거나 제거
+        //     this.classList.toggle("bi-pause");
+
+        //     // "bi-play-fill" 클래스를 제거
+        //     this.classList.remove("bi-play-fill");
+
+        //     // 현재 "bi-pause" 클래스가 있는지 확인
+        //     toggleIcon = this.classList.contains("bi-pause");
+
+        //     // "bi-pause" 클래스가 있으면 autoplay를 중지, 없으면 시작
+        //     if (toggleIcon) {
+        //         swiper.autoplay.stop();
+        //     } else {
+        //         swiper.autoplay.start();
+        //     }
+        // });
     </script>
 </body>
 
