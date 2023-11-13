@@ -15,7 +15,7 @@ window.addEventListener('load', function () {
 
         pagination: {
             el: '#mainbanner .swiper-pagination',
-            type: "progressbar",
+            clickable: true,
         },
 
         navigation: {

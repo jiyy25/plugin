@@ -28,12 +28,73 @@
         }
 
         .p-unset {
-            position: unset;
+            position: unset !important;
+        }
+
+        .border {
+            border: 1px solid white;
         }
 
         .z-index {
             z-index: 99999;
         }
+
+        #mainbanner .btns {
+            bottom: 2rem;
+            left: 0;
+            right: 0;
+            justify-content: center;
+            z-index: 99999;
+            line-height: 2rem;
+        }
+
+        #mainbanner .btns .toggle {
+            border-radius: 2rem;
+            margin-right: 0.5rem;
+        }
+
+        .w-auto {
+            width: auto !important;
+            /* 페이지네이션의 기존 넓이 때문에 버튼과 페이지 네이션이 붙지않음 
+            기존의 페이지네이션의 넓이를 없애줌 */
+        }
+
+        #mainbanner .swiper-pagination {
+            display: flex;
+            align-items: center;
+        }
+
+        #mainbanner .swiper-pagination-bullet {
+            width: 3rem;
+            height: 8px;
+            border-radius: 0;
+            background-color: transparent;
+            opacity: 1;
+            margin: 0;
+            position: relative;
+        }
+
+        #mainbanner .swiper-pagination-bullet::before {
+            content: "";
+            display: block;
+            position: absolute;
+            height: 1px;
+            top: 0;
+            bottom: 0;
+            right: 0;
+            left: 0;
+            margin: auto;
+            background-color: white;
+        }
+
+        #mainbanner .swiper-pagination-bullet-active {
+            background-color: transparent;
+        }
+
+        #mainbanner .swiper-pagination-bullet-active::before {
+            height: 3px;
+        }
+
 
         /* 배경처리 : 찌그러지지않게 처리하기 */
         #mainbanner .swiper-slide {
@@ -76,7 +137,7 @@
             </div>
             <div class="btns d-flex abs">
                 <button class="toggle bi bi-pause border"></button>
-                <div class="swiper-pagination p-unset"></div>
+                <div class="swiper-pagination p-unset w-auto"></div>
             </div>
 
             <div class="swiper-button-prev"></div>
