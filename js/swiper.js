@@ -7,11 +7,11 @@ window.addEventListener('load', function () {
         loop: true,
         effect: 'fade',
 
-        autoplay: {
-            delay: 4000,
-            disableOnInteraction: false,
-            pauseOnMouseEnter: true,
-        },
+        // autoplay: {
+        //     delay: 1500,
+        //     disableOnInteraction: false,
+        //     pauseOnMouseEnter: true,
+        // },
 
         pagination: {
             el: '#mainbanner .swiper-pagination',
@@ -25,4 +25,17 @@ window.addEventListener('load', function () {
 
     });
 
+    var toggleBtn = true;
+    document.querySelector(".toggle").addEventListener("click", function () {
+        this.classList.toggle("bi-play-fill")
+
+        toggleBtn = this.classList.contains("bi-play-fill");
+        if (toggleBtn) {
+            swiperMain.autoplay.stop();
+            console.log("HI")
+        } else {
+            swiperMain.autoplay.start();
+            console.log("BYE")
+        }
+    })
 })
