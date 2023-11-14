@@ -10,6 +10,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <script src="https://code.jquery.com/jquery-2.2.4.js"
+        integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <style>
         * {
@@ -138,7 +140,7 @@
 </head>
 
 <body>
-    <div id="shopBanner">
+    <div id="shopBanner" class="realIndex0">
         <div class="swiper container rel ">
             <div class="swiper-wrapper ">
                 <div class="swiper-slide " data-color="red">
@@ -176,26 +178,48 @@
     </div>
 
     <script>
-        var swiperShop = new Swiper('#shopBanner .swiper', {
-            loop: true,
-            effect: "fade",
+        $(function () {
+            var bgdata = "";
+            var colorArr = [];
+            const domm = document.querySelector("#shopBanner");
 
-            autoplay: {
-                delay: 3000,
-                disableOnInteraction: false,
-            },
+            $("#shopBanner .swiper-slide").each(function () {
+                colorArr[$(this).index()] = $(this).data('color')
+            })
 
-            pagination: {
-                el: '#shopBanner .swiper-pagination',
-                type: "fraction",
-            },
+            var swiperShop = new Swiper('#shopBanner .swiper', {
+                loop: true,
+                effect: "fade",
 
-            navigation: {
-                nextEl: '#shopBanner .swiper-button-next',
-                prevEl: '#shopBanner .swiper-button-prev',
-            },
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false,
+                },
 
-        });
+                pagination: {
+                    el: '#shopBanner .swiper-pagination',
+                    type: "fraction",
+                },
+
+                navigation: {
+                    nextEl: '#shopBanner .swiper-button-next',
+                    prevEl: '#shopBanner .swiper-button-prev',
+                },
+                on: {
+                    init: function () {
+                        // do something
+                    },
+                    realIndexChange: function () {
+                        console.log("realIndexChange", this.realIndex)
+                        // domm.classList = "realIndex" + this.realIndex
+                        domm.style.backgroundColor = colorArr[this.realIndex]
+                    }
+                }
+
+            });
+        })
+
+
 
         swiperShop.on('slideChange', function () {
             console.log(swiperShop.slides[this.realIndex].dataset.color, this)
