@@ -12,6 +12,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reset-css@5.0.2/reset.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.2.4.js"
+        integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
     <script src="./js/swiper.js"></script>
 
     <style>
@@ -55,10 +57,9 @@
             /* line-height: 2rem; */
         }
 
-
         /* #mainbanner .btns .toggle */
 
-        .bi-pause::before {
+        #mainbanner .bi-pause::before {
             color: white;
             background-color: transparent;
             border: 1px solid white;
@@ -66,7 +67,11 @@
             width: 1.5rem;
             height: 1.5rem;
             line-height: 1.5rem;
+            font-size: 1.2em;
+            /* 지금보다 커지고 싶을 때..? (현재기준에서부터 커질때라고 생각하고 쓰면 편하다)em */
+            /* 추후 충돌을 방지하기 위해 아이디를 끼워넣어주면 괜찮음..! */
         }
+
 
         .w-auto {
             width: auto !important;
@@ -138,10 +143,32 @@
         .bg3 {
             background-image: url(https://www.cj.co.kr/cj_files/main/visual/202308/1692251347164_0.jpg);
         }
+
+        /* 상위객체의 배경색 바꾸기 */
+        #mainbanner {
+            width: 600px;
+            margin: 0 auto;
+        }
+
+        .relIndex0 {
+            background-color: red;
+        }
+
+        .relIndex1 {
+            background-color: orange;
+        }
+
+        .relIndex2 {
+            background-color: green;
+        }
+
+        .relIndex3 {
+            background-color: blue;
+        }
     </style>
 </head>
 
-<body>
+<body class="relIndex0">
     <div id="mainbanner">
         <div class="swiper">
             <div class="swiper-wrapper">
@@ -151,7 +178,7 @@
                 <div class="swiper-slide bg3"></div>
             </div>
             <div class="btns d-flex abs">
-                <button class="toggle bi bi-pause border "></button>
+                <button class="toggle bi bi-pause border"></button>
                 <div class="swiper-pagination p-unset w-auto"></div>
             </div>
 
