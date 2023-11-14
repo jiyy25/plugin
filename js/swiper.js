@@ -62,6 +62,17 @@ $(document).ready(function () {
         }
     })
 
+    // $(".toggle").click(function () {
+    //     $(this).toggleClass("stop");
+    //     if ($(this).hasClass("stop")) {
+    //       swiperMain.autoplay.stop();
+    //     } else {
+    //       swiperMain.autoplay.start();
+    //     }
+    //   })
+
+      //hasClass 클래스의 유무확인을 할 때 쓴다.
+
     // var toggleBtn = true;
     // document.querySelector(".toggle").addEventListener("click", function () {
     //     this.classList.toggle("bi-play-fill")
